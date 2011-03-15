@@ -12,3 +12,26 @@ div.fields label{
 div.fields input {
 	width:200px;
 }
+
+#functions, #methods {
+	list-style-type:none;
+}
+
+#functions li, #methods li {
+	float:left;
+	display:block;
+	padding:5px;
+}
+
+.clearfix {
+	clear:both;
+}
+
+a {
+	text-decoration:none;
+}
+
+a.selected {
+	font-size:1.2em;
+	font-weight:bold;
+}

@@ -24,6 +24,9 @@
 		
 		// Capture the API Call selection
 		$('a.functions').live("click", function() {
+			
+			$('a.functions').removeClass("selected");
+			$(this).addClass("selected");
 
 			//Get the selected element						
 			currentElementName = $(this).attr("alt");
@@ -41,6 +44,10 @@
 		
 		// Capture the Method SElection
 		$('a.methods').live("click", function() {
+
+			$('a.methods').removeClass("selected");
+			$(this).addClass("selected");			
+			
 			//Extract the fields from the selected method
 			currentMethodName = $(this).attr("alt");
 			$('#fields').html(exploreFields(currentElementMethods[currentMethodName]));
@@ -153,8 +160,12 @@
 		<h2>API Calls</h2>
 		<ul id="functions"></ul>
 		
+		<div class="clearfix"/>
+		
 		<h2>Methods</h2>
 		<ul id="methods"></ul>
+		
+		<div class="clearfix"/>
 		
 		<h2>Fields</h2>
 		<div id="fields" class="fields">
