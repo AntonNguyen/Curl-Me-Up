@@ -106,6 +106,7 @@
 			
 			var numInputs = 0;
 			var numDivFields = 0;
+			var tempParseResult = ""
 			
 			numInputs = $(parent + ' > input').size();
 			numDivFields = $(parent + ' > div').size();
@@ -113,9 +114,13 @@
 			
 			if(numInputs == 0) {
 				$.each($(parent + ' > div'), function() {
-					xml += '<' + $(this).attr("alt") + '>';
-					xml += parseCurlFields(parent + '> div');
-					xml += '</' + $(this).attr("alt") + '>';
+					tempParseResult = parseCurlFields(parent + '> div');
+					
+					if (tempParseResult != "") {
+						xml += '<' + $(this).attr("alt") + '>';
+						xml += tempParseResult;
+						xml += '</' + $(this).attr("alt") + '>';
+					}
 				});				
 			} else {
 				$.each($(parent + ' > input'), function() {
@@ -128,9 +133,13 @@
 				
 				if (numDivFields > 0) {
 					$.each($(parent + ' > div'), function() {
-						xml += '<' + $(this).attr("alt") + '>';
-						xml += parseCurlFields(parent + '> div');
-						xml += '</' + $(this).attr("alt") + '>';
+						tempParseResult = parseCurlFields(parent + '> div');
+
+						if (tempParseResult != "") {
+							xml += '<' + $(this).attr("alt") + '>';
+							xml += tempParseResult;
+							xml += '</' + $(this).attr("alt") + '>';
+						}
 					});	
 				}
 			}
