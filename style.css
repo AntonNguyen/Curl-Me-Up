@@ -1,0 +1,14 @@
+div.fields {
+	border:1px solid #000000;
+	padding:10px;
+	
+}
+
+div.fields label{
+	display:inline-block;
+	width:100px;
+}
+
+div.fields input {
+	width:200px;
+}
