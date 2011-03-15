@@ -15,32 +15,22 @@
 		currentMethodName = "";
 
 		$(document).ready(function(){
-			//Get the callback functions
+			// Load up all the API Calls
 			$.each(functions, function(key, val) {
-				
-				// $.each(val, function(i,k) {
-				// 	console.log(key + "." + i);
-				// });
 				$('#functions').append('<li><a class="functions" href="#" alt="' + key + '">' + key + '</a></li>');
 			});
 		});
 		
+		
+		// Capture the API Call selection
 		$('a.functions').live("click", function() {
-			
+
+			//Get the selected element						
 			currentElementName = $(this).attr("alt");
-			
-			//Get the selected element
-			$.each(functions, function(key, val) {
-				
-				if (currentElementName == key) {
-					currentElementMethods = val;
-				}
-			});
-			
+			currentElementMethods = functions[currentElementName];
 
-			$('#methods').html("");			
-
-			//List all the methods for this element
+			// Clear any methods and add the new ones
+			$('#methods').html("");	
 			$.each(currentElementMethods, function(key, val) {
 				$('#methods').append('<li><a class="methods" href="#" alt="' + key + '">' + key + '</a></li>');			
 			});			
@@ -48,25 +38,25 @@
 			return false;
 		});
 		
+		
+		// Capture the Method SElection
 		$('a.methods').live("click", function() {
+			//Extract the fields from the selected method
 			currentMethodName = $(this).attr("alt");
-			
-			$.each(currentElementMethods, function(key, val) {
-				//Extract the fields
-				if (currentMethodName == key) {
-					$('#fields').html(exploreFields(val));
-				}
-			});
+			$('#fields').html(exploreFields(currentElementMethods[currentMethodName]));
 			
 			createCurlCommand();
 
 			return false;
 		});
 		
+		// Update the curl command on every text change
 		$('input').live("change", function() {
 			createCurlCommand();
 		});
+			
 		
+		// Recursively traverses the json object building the html form
 		function exploreFields(root) {
 			var fields = "";
 			
@@ -85,6 +75,7 @@
 			return fields;
 		}
 		
+		// Builds the curl command
 		function createCurlCommand() {
 			var command = "curl -u ";
 			command += $('#Token').val();
@@ -101,6 +92,7 @@
 			
 		}
 		
+		// Traverses the parent element in the DOM until it reaches the bottom, to build the curl commands
 		function parseCurlFields(parent) {
 			var xml = ""
 			
