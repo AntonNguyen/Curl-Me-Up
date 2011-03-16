@@ -52,6 +52,8 @@
 			currentMethodName = $(this).attr("alt");
 			$('#fields').html(exploreFields(currentElementMethods[currentMethodName]));
 			
+			$('#currentCurlCommand').html(currentElementName + '.' + currentMethodName);
+			
 			createCurlCommand();
 
 			return false;
@@ -171,7 +173,7 @@
 		<div id="fields" class="fields">
 		</div>
 		
-		<h2>Curl Command</h2>
+		<h2>Curl Command: <span id="currentCurlCommand">None</span></h2>
 		<textarea id="curl_result" rows="10" cols="50"></textarea>
 	</body>
 </html>
