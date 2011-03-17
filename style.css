@@ -1,11 +1,38 @@
+html {
+	font-size:62.5%;
+	background-color:#1C5790;
+	margin:0;
+	padding:0;
+}
+
 body {
-	
+	font:1.3em verdana,sans-serif;
+	color:#FFF;
+	margin:0;
+	padding:20px;	
+}
+
+h1 {
+	text-align:center;
+}
+
+h2, h3 {
+	font-size:1.4em;
+	border-bottom:1px solid #FFFFFF;
+}
+
+#authenticationInfo {
+	margin:0 auto;
+	width:700px;
+}
+
+#fields {
+	width:400px;
 }
 
 div.fields {
-	border:1px solid #000000;
 	padding:10px;
-	
+	margin-left:10px;
 }
 
 div.fields label{
@@ -33,9 +60,23 @@ div.fields input {
 
 a {
 	text-decoration:none;
+	color:#E5ECF3;
 }
 
 a.selected {
-	font-size:1.2em;
+	font-size:1.1em;
 	font-weight:bold;
+	color:#7295B2;
+}
+
+.leftColumn {
+	float:left;
+	width:400px;
+}
+
+.rightColumn {
+	float:left;
+	width:430px;
+	margin-left:20px;
+	
 }

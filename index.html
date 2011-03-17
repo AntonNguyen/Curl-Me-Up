@@ -42,7 +42,7 @@
 		});
 		
 		
-		// Capture the Method SElection
+		// Capture the Method Selection
 		$('a.methods').live("click", function() {
 
 			$('a.methods').removeClass("selected");
@@ -153,27 +153,32 @@
 	</head>
 	<body>
 		<h1>Curl Me Up</h1>
-
-		<label for="">API URL</label>
-		<input id="URL" type="text" size="40"/>
-		<label for="">Authentication Token</label>
-		<input id="Token" type="text" size="40"/>
+		
+		<div id="authenticationInfo">
+			<label for="">API URL</label>
+			<input id="URL" type="text" size="40"/>
+			<label for="">Authentication Token</label>
+			<input id="Token" type="text" size="40"/>
+		</div>
 		
 		<h2>API Calls</h2>
 		<ul id="functions"></ul>
-		
-		<div class="clearfix"/>
+		<div class="clearfix"></div>
 		
 		<h2>Methods</h2>
 		<ul id="methods"></ul>
+		<div class="clearfix"></div>
 		
-		<div class="clearfix"/>
-		
-		<h2>Fields</h2>
-		<div id="fields" class="fields">
+		<div class="leftColumn">
+			<h2>Fields</h2>
+			<div id="fields" class="fields">
+			</div>
 		</div>
 		
-		<h2>Curl Command: <span id="currentCurlCommand">None</span></h2>
-		<textarea id="curl_result" rows="10" cols="50"></textarea>
+		<div class="rightColumn">
+			<h2>Curl Command: <span id="currentCurlCommand">None</span></h2>
+			<textarea id="curl_result" rows="10" cols="50"></textarea>
+		</div>
+		<div class="clearfix"></div>
 	</body>
 </html>
